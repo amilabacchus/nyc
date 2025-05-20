@@ -12,28 +12,32 @@
 <body>
 
     <!-- Entry Screen -->
+    <!-- Splash screen users see first. Clicking the button triggers the video and loads the main site. -->
     <div id="entryScreen">
         <h1>Only in NYC 🗽</h1>
         <button id="enterBtn">Enter the Madness</button>
     </div>
 
     <!-- Fullscreen Video -->
+    <!-- Hidden video overlay that plays briefly when the user enters which adds NYC core -->
     <div id="videoOverlay">
         <video playsinline id="splashVideo" preload="auto">
             <source src="intro.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!-- Main App (hidden at first) -->
+    <!-- Main App (hidden until video ends) -->
     <div id="mainApp" style="display: none;">
         <header id="formHeader">
             <h1>🗽 Only in NYC</h1>
-            <p>Tell us something wild, funny, weird, or unforgettable that could only happen here.</p>
+            <p>Share something wild, funny, weird, or unforgettable that could only happen here.</p>
         </header>
+        <!--Input fields for the story title and the main story body. Both are required-->
         <form id="entryForm">
             <input type="text" name="title" placeholder="Title (e.g. Rat Took My Pizza)" required />
             <textarea name="story" placeholder="Tell us your story..." required></textarea>
 
+            <!--Dropdowns for selecting the NYC borough and time of day-->
             <select name="borough" required>
                 <option value="">Select Borough</option>
                 <option value="Manhattan">Manhattan</option>
@@ -51,6 +55,7 @@
                 <option value="Late Night">Late Night</option>
             </select>
 
+            <!--Optional tags that users can apply to describe the mood or theme of their story-->
             <label>Tags:</label>
             <label><input type="checkbox" name="tags" value="Funny" /> Funny</label>
             <label><input type="checkbox" name="tags" value="Scary" /> Scary</label>
@@ -61,11 +66,14 @@
             <button type="submit">Submit</button>
         </form>
 
+        <!--Section where all submitted stories are displayed-->
         <div id="storiesSection">
             <header id="archiveHeader">
                 <h1>The Archive</h1>
             </header>
 
+
+            <!--Dropdown filters for browsing stories by borough, time, or tag. Triggers reloading of filtered stories-->
             <div id="filterCard">
                 <h3>🔎 Filter</h3>
                 <div id="filters">

@@ -1,5 +1,6 @@
 // Only in NYC: Express + MongoDB server
 
+// Importing all required packages
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -24,8 +25,8 @@ let db, entriesCollection;
 // Connect to database
 async function connectToDB() {
     try {
-        await client.connect();
-        db = client.db('only-in-nyc-db');
+        await client.connect(); // Connect to mongoDB
+        db = client.db('only-in-nyc-db'); // Selects datbase
         entriesCollection = db.collection('entries');
         console.log('Connected to MongoDB');
     } catch (err) {
@@ -47,6 +48,7 @@ app.get('/entries', async (req, res) => {
 });
 
 // Post a new entry
+// This POST route receives data from the form, validates it, and inserts it into the database
 app.post('/entries', async (req, res) => {
     const { title, story, borough, timeOfDay, tags } = req.body;
     console.log('Incoming entry:', req.body); // check if working
@@ -74,7 +76,8 @@ app.post('/entries', async (req, res) => {
     }
 });
 
-// Start server
+// Start server on the defined port and connects to MongoDB 
+//once server is running 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
     connectToDB();
