@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Only in NYC 🗽</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Entry Screen -->
+    <div id="entryScreen">
+        <h1>Only in NYC 🗽</h1>
+        <button id="enterBtn">Enter the Madness</button>
+    </div>
+
+    <!-- Fullscreen Video -->
+    <div id="videoOverlay">
+        <video playsinline id="splashVideo" preload="auto">
+            <source src="intro.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <!-- Main App (hidden at first) -->
+    <div id="mainApp" style="display: none;">
+        <header id="formHeader">
+            <h1>🗽 Only in NYC</h1>
+            <p>Tell us something wild, funny, weird, or unforgettable that could only happen here.</p>
+        </header>
+        <form id="entryForm">
+            <input type="text" name="title" placeholder="Title (e.g. Rat Took My Pizza)" required />
+            <textarea name="story" placeholder="Tell us your story..." required></textarea>
+
+            <select name="borough" required>
+                <option value="">Select Borough</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Brooklyn">Brooklyn</option>
+                <option value="Queens">Queens</option>
+                <option value="Bronx">Bronx</option>
+                <option value="Staten Island">Staten Island</option>
+            </select>
+
+            <select name="timeOfDay" required>
+                <option value="">Time of Day</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+                <option value="Late Night">Late Night</option>
+            </select>
+
+            <label>Tags:</label>
+            <label><input type="checkbox" name="tags" value="Funny" /> Funny</label>
+            <label><input type="checkbox" name="tags" value="Scary" /> Scary</label>
+            <label><input type="checkbox" name="tags" value="Wholesome" /> Wholesome</label>
+            <label><input type="checkbox" name="tags" value="WTF" /> WTF</label>
+            <label><input type="checkbox" name="tags" value="Sad" /> Sad</label>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="storiesSection">
+            <header id="archiveHeader">
+                <h1>The Archive</h1>
+            </header>
+
+            <div id="filterCard">
+                <h3>🔎 Filter</h3>
+                <div id="filters">
+                    <select id="boroughFilter">
+                        <option value="">All Boroughs</option>
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Brooklyn">Brooklyn</option>
+                        <option value="Queens">Queens</option>
+                        <option value="Bronx">Bronx</option>
+                        <option value="Staten Island">Staten Island</option>
+                    </select>
+
+                    <select id="timeFilter">
+                        <option value="">All Times</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Late Night">Late Night</option>
+                    </select>
+
+                    <select id="tagFilter">
+                        <option value="">All Moods</option>
+                        <option value="Funny">Funny</option>
+                        <option value="Scary">Scary</option>
+                        <option value="Wholesome">Wholesome</option>
+                        <option value="WTF">WTF</option>
+                        <option value="Sad">Sad</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="storyContainer"></div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
