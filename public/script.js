@@ -2,7 +2,7 @@
 // Waits for the entire HTML to load before running the code inside. Ensures all elements are available for manipulation.
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Grabs important HTML elements for the entry experience: the “Enter” button, splash screen, video overlay, and the main app content.
+    // Grabs important HTML elements for the entry experience: the Enter button, splash screen, video overlay, and the main app content.
     const enterBtn = document.getElementById('enterBtn');
     const entryScreen = document.getElementById('entryScreen');
     const videoOverlay = document.getElementById('videoOverlay');
